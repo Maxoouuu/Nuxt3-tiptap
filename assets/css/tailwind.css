@@ -31,3 +31,19 @@ h6 {
   font-size: 12px;
   font-weight: bold;
 }
+
+
+ol {
+  display: block;
+  list-style-type: decimal;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+}
+
+li {
+  display: list-item;
+  margin-left: 20px;
+}
