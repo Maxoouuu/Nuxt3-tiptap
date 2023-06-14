@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <div id="text-editor">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <div id="text-editor" class="text-editor">
       <div class="toolbar" v-if="editor">
         <div class="align-dropdown">
           <button class="dropbtn">
@@ -188,118 +185,114 @@ watch(
 );
 </script>
 
-<style lang="scss" scoped>
-#text-editor {
+<style scoped>
+.text-editor {
   border: 1px solid #808080;
-  .toolbar {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #808080;
-    .noneHeader {
-      display: none;
-    }
-    > button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      font-size: 20px;
-      background: #fff;
-      color: #333;
-      border: none;
-      border-radius: 2px;
-      margin: 0.5em 4px;
-      -webkit-appearance: none;
-      cursor: pointer;
-      &.active {
-        background: #333;
-        color: #fff;
-      }
-    }
-  }
-  .align-dropdown {
-    position: relative;
-    display: inline-block;
-    margin: 0.5em 8px;
-    min-width: 78.563px;
-    > button {
-      height: 32px;
-      background: #fff;
-      color: #333;
-      border: none;
-      border-radius: 2px;
-      -webkit-appearance: none;
-      cursor: pointer;
-      width: 100%;
-      margin: 0 auto;
-    }
-    > .dropdown-content {
-      display: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      border: 1px solid #333;
-      outline: 1px solid #fff;
-      border-radius: 2px;
-      background-color: #fff;
-      z-index: 1;
-      a {
-        display: block;
-        padding: 6px 12px;
-        text-align: center;
-        cursor: pointer;
-        &:hover,
-        &.active {
-          background: #333;
-          color: #fff;
-        }
-      }
-    }
-    &:hover .dropdown-content {
-      display: block;
-    }
-  }
-  .divider {
-    width: 1px;
-    height: 24px;
-    background: #333;
-    margin-right: 6px;
-  }
-  .footer {
-    color: #808080;
-    font-size: 14px;
-    text-align: right;
-    padding: 6px;
-    .characters-count {
-      &.warning {
-        color: orange;
-      }
-      &.danger {
-        color: red;
-      }
-    }
-  }
-  .ProseMirror {
-    height: 300px;
-    overflow-y: auto;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    outline: none;
-    > p:first-child {
-      margin-top: 0.5em;
-    }
-    > h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      &:first-child {
-        margin-top: 0.5em;
-      }
-    }
-  }
+}
+.text-editor .toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #808080;
+}
+.text-editor .noneHeader {
+  display: none;
+}
+.text-editor .toolbar > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 2px;
+  margin: 0.5em 4px;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.text-editor .toolbar > button.active {
+  background: #333;
+  color: #fff;
+}
+.text-editor .align-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0.5em 8px;
+  min-width: 78.563px;
+}
+.text-editor .align-dropdown > button {
+  height: 32px;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+}
+.text-editor .align-dropdown > .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid #333;
+  outline: 1px solid #fff;
+  border-radius: 2px;
+  background-color: #fff;
+  z-index: 1;
+}
+.text-editor .align-dropdown > .dropdown-content a {
+  display: block;
+  padding: 6px 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.text-editor .align-dropdown > .dropdown-content a:hover,
+.text-editor .align-dropdown > .dropdown-content a.active {
+  background: #333;
+  color: #fff;
+}
+.text-editor .align-dropdown:hover .dropdown-content {
+  display: block;
+}
+.text-editor .divider {
+  width: 1px;
+  height: 24px;
+  background: #333;
+  margin-right: 6px;
+}
+.text-editor .footer {
+  color: #808080;
+  font-size: 14px;
+  text-align: right;
+  padding: 6px;
+}
+.text-editor .footer .characters-count.warning {
+  color: orange;
+}
+.text-editor .footer .characters-count.danger {
+  color: red;
+}
+.text-editor .ProseMirror {
+  height: 300px;
+  overflow-y: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  outline: none;
+}
+.text-editor .ProseMirror > p:first-child {
+  margin-top: 0.5em;
+}
+.text-editor .ProseMirror > h1:first-child,
+.text-editor .ProseMirror > h2:first-child,
+.text-editor .ProseMirror > h3:first-child,
+.text-editor .ProseMirror > h4:first-child,
+.text-editor .ProseMirror > h5:first-child,
+.text-editor .ProseMirror > h6:first-child {
+  margin-top: 0.5em;
 }
 </style>
